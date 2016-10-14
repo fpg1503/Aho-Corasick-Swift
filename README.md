@@ -107,7 +107,7 @@ finds.
             .add(keyword: "cba")
             .add(keyword: "ababc")
             .build()
-    let firstMatch = trie.firstMatch("ababcbab")
+    let firstMatch = trie.firstMatch(text: "ababcbab")
 ```
 
 The `firstMatch` will now be "ababc" found at position 0. `containsMatch` just checks if there is a firstMatch and
@@ -120,7 +120,7 @@ matches as soon as you encounter them. Let's look at an example where we want to
 ```swift
     let speech = "The Answer to the Great Question... Of Life, " +
             "the Universe and Everything... Is... Forty-two,' said " +
-            "Deep Thought, with infinite majesty and calm.";
+            "Deep Thought, with infinite majesty and calm."
     let trie = Trie.builder()
         .removeOverlaps()
         .onlyDelimited()
