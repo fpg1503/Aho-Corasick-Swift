@@ -29,17 +29,12 @@ public class State {
     }
 
     public func addState(for character: Character) -> State {
-        //TODO: Swiftify
-        let nextState = self.nextState(for: character, ignoreRootState: true)
-
-        if let nextState = nextState {
-            return nextState
-        } else {
+        return nextState(for: character, ignoreRootState: true) ?? {
             let nextState = State(depth: depth + 1)
             success[character] = nextState
 
             return nextState
-        }
+        }()
     }
 
     public func addEmit(_ keyword: String) {
