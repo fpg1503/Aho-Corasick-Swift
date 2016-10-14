@@ -429,4 +429,35 @@ class AhoCorasickTests: XCTestCase {
         XCTAssertEqual(iterator.next(), Emit(start: 41, end: 43, keyword: "abc"))
         XCTAssertNil(iterator.next())
     }
+
+    public func testHTML() {
+        let speech = "The Answer to the Great Question... Of Life, " +
+            "the Universe and Everything... Is... Forty-two,' said " +
+        "Deep Thought, with infinite majesty and calm.";
+        let trie = Trie.builder()
+            .removeOverlaps()
+            .onlyDelimited()
+            .caseInsensitive()
+            .add(keyword: "great question")
+            .add(keyword: "forty-two")
+            .add(keyword: "deep thought")
+            .build()
+        let tokens = trie.tokenize(text: speech)
+        var html = ""
+        html.append("<html><body><p>")
+        for token in tokens {
+            if token.isMatch {
+                html.append("<i>")
+            }
+            html.append(token.fragment)
+            if token.isMatch {
+                html.append("</i>")
+            }
+        }
+        html.append("</p></body></html>")
+
+        let expectedHTML = "<html><body><p>The Answer to the <i>Great Question</i>... Of Life, the Universe and Everything... Is... <i>Forty-two</i>,\' said <i>Deep Thought</i>, with infinite majesty and calm.</p></body></html>"
+
+        XCTAssertEqual(html, expectedHTML)
+    }
 }
