@@ -2,28 +2,6 @@ private enum Direction {
     case left, right
 }
 
-
-//TODO: Turn into extenstion
-public func determineMedian<T: Interval>(intervals: [T]) -> Int {
-
-    var start = -1
-    var end = -1
-
-    for interval in intervals {
-        let currentStart = interval.start
-        let currentEnd = interval.end
-
-        //TODO: Don't use hacks
-        if start == -1 || currentStart < start {
-            start = currentStart
-        }
-        if end == -1 || currentEnd > end {
-            end = currentEnd
-        }
-    }
-    return (start + end) / 2
-}
-
 public class IntervalNode<T: Interval> {
 
     private var left: IntervalNode?
@@ -34,7 +12,7 @@ public class IntervalNode<T: Interval> {
     private var intervals: [T] = []
 
     public init(intervals: [T]) {
-        point = determineMedian(intervals: intervals)
+        point = intervals.median ?? 0
 
         var toLeft = [T]()
         var toRight = [T]()

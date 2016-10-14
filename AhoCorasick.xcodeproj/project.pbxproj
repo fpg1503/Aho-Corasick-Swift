@@ -21,6 +21,7 @@
 		A3AFFC331DB1616B006AE7EF /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AFFC281DB1616B006AE7EF /* Token.swift */; };
 		A3AFFC341DB1616B006AE7EF /* Trie.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AFFC291DB1616B006AE7EF /* Trie.swift */; };
 		A3AFFC351DB1616B006AE7EF /* TrieConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AFFC2A1DB1616B006AE7EF /* TrieConfig.swift */; };
+		A3AFFC371DB16668006AE7EF /* IntervalArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AFFC361DB16668006AE7EF /* IntervalArrayExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		A3AFFC281DB1616B006AE7EF /* Token.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		A3AFFC291DB1616B006AE7EF /* Trie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Trie.swift; sourceTree = "<group>"; };
 		A3AFFC2A1DB1616B006AE7EF /* TrieConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrieConfig.swift; sourceTree = "<group>"; };
+		A3AFFC361DB16668006AE7EF /* IntervalArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntervalArrayExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				A3AFFC1E1DB1616B006AE7EF /* CharacterExtensions.swift */,
+				A3AFFC361DB16668006AE7EF /* IntervalArrayExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				A3AFFC311DB1616B006AE7EF /* MatchToken.swift in Sources */,
 				A3AFFC341DB1616B006AE7EF /* Trie.swift in Sources */,
 				A3AFFC2E1DB1616B006AE7EF /* IntervalTree.swift in Sources */,
+				A3AFFC371DB16668006AE7EF /* IntervalArrayExtensions.swift in Sources */,
 				A3AFFC2D1DB1616B006AE7EF /* IntervalNode.swift in Sources */,
 				A3AFFC301DB1616B006AE7EF /* FragmentToken.swift in Sources */,
 				A3AFFC321DB1616B006AE7EF /* State.swift in Sources */,

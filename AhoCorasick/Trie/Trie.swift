@@ -151,21 +151,10 @@ public struct Trie {
     }
 
     private func removePartialMatches(searchText: String, collectedEmits: [Emit]) -> [Emit] {
-        var collectedEmits = collectedEmits
-    //TODO: Swiftify
-        var removeEmits = [Emit]()
 
-        for emit in collectedEmits {
-            if isPartialMatch(searchText: searchText, emit: emit) {
-                removeEmits.append(emit)
-            }
-        }
+        let nonPartialMatches = collectedEmits.filter { !isPartialMatch(searchText: searchText, emit: $0) }
 
-        for emit in removeEmits {
-            collectedEmits.remove(at: collectedEmits.index(of: emit)!)
-        }
-
-        return collectedEmits
+        return nonPartialMatches
     }
 
     private func getState(currentState: State, character: Character) -> State {
