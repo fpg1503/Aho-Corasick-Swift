@@ -23,7 +23,8 @@ public struct Trie {
         var tokens = [Token]()
         let collectedEmits = parse(text: text)
 
-        var lastCollectedPosition = -1 //TODO: Swiftify
+        var lastCollectedPosition = -1
+        //TODO: Swiftify
 
         for emit in collectedEmits {
             if emit.start - lastCollectedPosition > 1 {
