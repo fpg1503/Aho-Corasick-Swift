@@ -128,22 +128,6 @@ public struct Trie {
     }
 
     private func isPartialMatch(searchText: String, emit: Emit) -> Bool {
-        func isNotBoundary(_ character: Character) -> Bool {
-            guard character != "a" else { return true }
-
-            let nonCharacter = "a"
-
-            let string = nonCharacter + String(character)
-            let wholeRange = NSRange(location: 0, length: string.characters.count)
-
-            let pattern = nonCharacter + "\\b"
-            let regex = try? NSRegularExpression(pattern: pattern, options: .useUnicodeWordBoundaries)
-
-            let count = regex?.numberOfMatches(in: string, range: wholeRange) ?? 0
-            
-            return count == 0
-        }
-
         let characterBeforeIsNotBoundary: Bool = {
             guard emit.start > 0 else { return false }
 
@@ -151,7 +135,7 @@ public struct Trie {
             let index = searchText.index(searchText.startIndex, offsetBy: offset)
             let characterBefore = searchText.characters[index]
 
-            return isNotBoundary(characterBefore)
+            return !characterBefore.isWordBoundary
         }()
         let characterAfterIsNotBoundary: Bool = {
             guard emit.end + 1 < searchText.characters.count else { return false }
@@ -160,7 +144,7 @@ public struct Trie {
             let index = searchText.index(searchText.startIndex, offsetBy: offset)
             let characterAfter = searchText.characters[index]
 
-            return isNotBoundary(characterAfter)
+            return !characterAfter.isWordBoundary
         }()
 
         return characterBeforeIsNotBoundary || characterAfterIsNotBoundary
