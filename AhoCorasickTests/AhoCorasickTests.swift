@@ -409,4 +409,24 @@ class AhoCorasickTests: XCTestCase {
         let expectedEmit = Emit(start: 5, end: 8, keyword: "this")
         XCTAssertEqual(firstMatch, expectedEmit)
     }
+
+    public func testUnicodeTR29Delimited() {
+        let trie = Trie.builder()
+            .onlyDelimited()
+            .add(keyword: "abc")
+            .build()
+
+        let emits = trie.parse(text: "abc, abc: abc? abcabc ・abc・ 〱abc〴 〴abcd >abc")
+
+        XCTAssertEqual(emits.count, 6)
+        var iterator = emits.makeIterator()
+
+        XCTAssertEqual(iterator.next(), Emit(start: 0, end: 2, keyword: "abc"))
+        XCTAssertEqual(iterator.next(), Emit(start: 5, end: 7, keyword: "abc"))
+        XCTAssertEqual(iterator.next(), Emit(start: 10, end: 12, keyword: "abc"))
+        XCTAssertEqual(iterator.next(), Emit(start: 23, end: 25, keyword: "abc"))
+        XCTAssertEqual(iterator.next(), Emit(start: 29, end: 31, keyword: "abc"))
+        XCTAssertEqual(iterator.next(), Emit(start: 41, end: 43, keyword: "abc"))
+        XCTAssertNil(iterator.next())
+    }
 }
