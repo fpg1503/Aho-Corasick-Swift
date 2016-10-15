@@ -461,6 +461,17 @@ class AhoCorasickTests: XCTestCase {
 
     public func testDiacriticInsensitive() {
         let trie = Trie.builder()
+            .diacriticInsensitive()
+            .add(keyword: "café")
+            .build()
+
+        let matches = trie.containsMatch(text: "je bois du cafe tous les matins")
+
+        XCTAssertTrue(matches)
+    }
+
+    public func testDiacriticInsensitiveCaseInsensitive() {
+        let trie = Trie.builder()
         .diacriticInsensitive()
         .caseInsensitive()
         .add(keyword: "cafè")
