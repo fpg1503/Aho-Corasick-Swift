@@ -210,13 +210,27 @@ public struct Trie {
         return storedEmits
     }
 
+    init() {
+        config = TrieConfig()
+    }
+
+    public init(config: TrieConfig, keywords: [String]) {
+        self.config = config
+
+        for keyword in keywords {
+            add(keyword: keyword)
+        }
+
+        constructFailureStates()
+    }
+
     public static func builder() -> TrieBuilder {
         return TrieBuilder()
     }
 
     public class TrieBuilder {
 
-        private var trie: Trie = Trie(config: TrieConfig())
+        private var trie: Trie = Trie()
 
         public func caseInsensitive() -> TrieBuilder {
             trie.config.caseInsensitive = true
