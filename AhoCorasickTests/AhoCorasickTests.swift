@@ -312,8 +312,6 @@ class AhoCorasickTests: XCTestCase {
         XCTAssertEqual(iterator.next()?.fragment, " in reserve")
     }
 
-
-    //TODO
     public func testRobertBorBug5InGithubReportedByXCurry() {
         let trie = Trie.builder().caseInsensitive().onlyDelimited()
             .add(keyword: "turning")
@@ -459,5 +457,17 @@ class AhoCorasickTests: XCTestCase {
         let expectedHTML = "<html><body><p>The Answer to the <i>Great Question</i>... Of Life, the Universe and Everything... Is... <i>Forty-two</i>,\' said <i>Deep Thought</i>, with infinite majesty and calm.</p></body></html>"
 
         XCTAssertEqual(html, expectedHTML)
+    }
+
+    public func testDiacriticInsensitive() {
+        let trie = Trie.builder()
+        .diacriticInsensitive()
+        .caseInsensitive()
+        .add(keyword: "cafè")
+        .build()
+
+        let emits = trie.parse(text: "cafe cafè café cafë CafÉ cafÈ")
+
+        XCTAssertEqual(emits.count, 5)
     }
 }
