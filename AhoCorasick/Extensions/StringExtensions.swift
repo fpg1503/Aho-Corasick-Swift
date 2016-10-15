@@ -13,12 +13,12 @@ public struct TrieOptions: OptionSet {
     static let stopOnHit        = TrieOptions(rawValue: 1 << 3)
 
     var trieConfig: TrieConfig {
-        let allowsOverlaps = !contains(.removeOverlaps)
+        let removeOverlaps = contains(.removeOverlaps)
         let onlyDelimited = contains(.onlyDelimited)
         let caseInsensitive = contains(.caseInsensitive)
         let stopOnHit = contains(.stopOnHit)
 
-        return TrieConfig(allowsOverlaps: allowsOverlaps, onlyDelimited: onlyDelimited, caseInsensitive: caseInsensitive, stopOnHit: stopOnHit)
+        return TrieConfig(removeOverlaps: removeOverlaps, onlyDelimited: onlyDelimited, caseInsensitive: caseInsensitive, stopOnHit: stopOnHit)
     }
 
 }

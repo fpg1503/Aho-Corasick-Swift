@@ -1,7 +1,6 @@
 
 public struct TrieConfig {
-
-    var allowsOverlaps = true
+    var removeOverlaps = false
     var onlyDelimited = false
     var caseInsensitive = false
     var stopOnHit = false

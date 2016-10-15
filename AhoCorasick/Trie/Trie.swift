@@ -62,7 +62,7 @@ public struct Trie {
             collectedEmits = removePartialMatches(searchText: text, collectedEmits: collectedEmits)
         }
 
-        if !config.allowsOverlaps {
+        if config.removeOverlaps {
             let intervalTree = IntervalTree(intervals: collectedEmits)
             collectedEmits = intervalTree.removeOverlaps(intervals: collectedEmits)
         }
@@ -96,7 +96,7 @@ public struct Trie {
     }
 
     public func firstMatch(text: String) -> Emit? {
-        if !config.allowsOverlaps {
+        if config.removeOverlaps {
             let parseText = self.parse(text: text)
             if !parseText.isEmpty {
                 return parseText.first
@@ -238,7 +238,7 @@ public struct Trie {
         }
 
         public func removeOverlaps() -> TrieBuilder {
-            trie.config.allowsOverlaps = false
+            trie.config.removeOverlaps = true
             return self
         }
 
