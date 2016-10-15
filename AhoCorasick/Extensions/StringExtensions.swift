@@ -7,23 +7,29 @@ public struct TrieOptions: OptionSet {
         self.rawValue = rawValue
     }
 
-    static let caseInsensitive  = TrieOptions(rawValue: 1 << 0)
-    static let removeOverlaps   = TrieOptions(rawValue: 1 << 1)
-    static let onlyDelimited    = TrieOptions(rawValue: 1 << 2)
-    static let stopOnHit        = TrieOptions(rawValue: 1 << 3)
+    static let removeOverlaps       = TrieOptions(rawValue: 1 << 0)
+    static let onlyDelimited        = TrieOptions(rawValue: 1 << 1)
+    static let caseInsensitive      = TrieOptions(rawValue: 1 << 2)
+    static let diacriticInsensitive = TrieOptions(rawValue: 1 << 3)
+    static let stopOnHit            = TrieOptions(rawValue: 1 << 4)
 
     var trieConfig: TrieConfig {
-        let removeOverlaps = contains(.removeOverlaps)
-        let onlyDelimited = contains(.onlyDelimited)
-        let caseInsensitive = contains(.caseInsensitive)
-        let stopOnHit = contains(.stopOnHit)
+        let removeOverlaps          = contains(.removeOverlaps)
+        let onlyDelimited           = contains(.onlyDelimited)
+        let caseInsensitive         = contains(.caseInsensitive)
+        let diacriticInsensitive    = contains(.diacriticInsensitive)
+        let stopOnHit               = contains(.stopOnHit)
 
-        return TrieConfig(removeOverlaps: removeOverlaps, onlyDelimited: onlyDelimited, caseInsensitive: caseInsensitive, stopOnHit: stopOnHit)
+        return TrieConfig(removeOverlaps: removeOverlaps, onlyDelimited: onlyDelimited, caseInsensitive: caseInsensitive, diacriticInsensitive: diacriticInsensitive, stopOnHit: stopOnHit)
     }
 
 }
 
 public extension String {
+    public func removingDiacritics() -> String {
+        return folding(options: .diacriticInsensitive, locale: nil)
+    }
+
     public func parse(with trie: Trie) -> [Emit] {
         return trie.parse(text: self)
     }

@@ -9,7 +9,7 @@ extension Character {
 
     func removingDiacritics() -> Character {
         let string = String(self)
-        let stringRemovingDiacritics = string.folding(options: .diacriticInsensitive, locale: nil)
+        let stringRemovingDiacritics = string.removingDiacritics()
         return stringRemovingDiacritics.characters.first ?? self
     }
 
