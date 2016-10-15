@@ -468,6 +468,6 @@ class AhoCorasickTests: XCTestCase {
 
         let emits = trie.parse(text: "cafe cafè café cafë CafÉ cafÈ")
 
-        XCTAssertEqual(emits.count, 5)
+        XCTAssertEqual(emits.count, 6)
     }
 }

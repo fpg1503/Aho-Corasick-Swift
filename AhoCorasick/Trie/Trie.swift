@@ -13,9 +13,21 @@ public struct Trie {
             if config.caseInsensitive {
                 character = character.lowercased()
             }
+            if config.diacriticInsensitive {
+                character = character.removingDiacritics()
+            }
             currentState = currentState.addState(for: character)
         }
-        currentState.addEmit(config.caseInsensitive ? keyword.lowercased() : keyword)
+
+        var keyword = keyword
+        if config.caseInsensitive {
+            keyword = keyword.lowercased()
+        }
+        if config.diacriticInsensitive {
+            keyword = keyword.removingDiacritics()
+        }
+
+        currentState.addEmit(keyword)
     }
 
     public func tokenize(text: String) -> [Token] {
@@ -84,6 +96,9 @@ public struct Trie {
             if config.caseInsensitive {
                 character = character.lowercased()
             }
+            if config.diacriticInsensitive {
+                character = character.removingDiacritics()
+            }
 
             currentState = getState(currentState: currentState, character: character)
             let newEmits = storeEmits(position: position, currentState: currentState)
@@ -110,6 +125,10 @@ public struct Trie {
                 if config.caseInsensitive {
                     character = character.lowercased()
                 }
+                if config.diacriticInsensitive {
+                    character = character.removingDiacritics()
+                }
+                
                 currentState = getState(currentState: currentState, character: character)
                 let emitStrings = currentState.emits
 
@@ -234,6 +253,11 @@ public struct Trie {
 
         public func caseInsensitive() -> TrieBuilder {
             trie.config.caseInsensitive = true
+            return self
+        }
+
+        public func diacriticInsensitive() -> TrieBuilder {
+            trie.config.diacriticInsensitive = true
             return self
         }
 
