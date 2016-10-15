@@ -7,6 +7,12 @@ extension Character {
         return lowercasedString.characters.first ?? self
     }
 
+    func removingDiacritics() -> Character {
+        let string = String(self)
+        let stringRemovingDiacritics = string.folding(options: .diacriticInsensitive, locale: nil)
+        return stringRemovingDiacritics.characters.first ?? self
+    }
+
     var isWordBoundary: Bool {
         guard self != "a" else { return false }
 
