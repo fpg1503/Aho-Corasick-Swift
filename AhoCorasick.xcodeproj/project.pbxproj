@@ -23,6 +23,9 @@
 		A3AFFC351DB1616B006AE7EF /* TrieConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AFFC2A1DB1616B006AE7EF /* TrieConfig.swift */; };
 		A3AFFC371DB16668006AE7EF /* IntervalArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AFFC361DB16668006AE7EF /* IntervalArrayExtensions.swift */; };
 		A3AFFC391DB198E5006AE7EF /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AFFC381DB198E5006AE7EF /* StringExtensions.swift */; };
+		A3B66B7B1DB27E13007F1139 /* moby_dick.txt in Resources */ = {isa = PBXBuildFile; fileRef = A3B66B791DB27E13007F1139 /* moby_dick.txt */; };
+		A3B66B7C1DB27E13007F1139 /* words.txt in Resources */ = {isa = PBXBuildFile; fileRef = A3B66B7A1DB27E13007F1139 /* words.txt */; };
+		A3B66B7E1DB27E1F007F1139 /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B66B7D1DB27E1F007F1139 /* PerformanceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,9 @@
 		A3AFFC2A1DB1616B006AE7EF /* TrieConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrieConfig.swift; sourceTree = "<group>"; };
 		A3AFFC361DB16668006AE7EF /* IntervalArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntervalArrayExtensions.swift; sourceTree = "<group>"; };
 		A3AFFC381DB198E5006AE7EF /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		A3B66B791DB27E13007F1139 /* moby_dick.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = moby_dick.txt; sourceTree = "<group>"; };
+		A3B66B7A1DB27E13007F1139 /* words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words.txt; sourceTree = "<group>"; };
+		A3B66B7D1DB27E1F007F1139 /* PerformanceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +115,9 @@
 		A3AFFC101DB16130006AE7EF /* AhoCorasickTests */ = {
 			isa = PBXGroup;
 			children = (
+				A3B66B781DB27E13007F1139 /* Files */,
 				A3AFFC111DB16130006AE7EF /* AhoCorasickTests.swift */,
+				A3B66B7D1DB27E1F007F1139 /* PerformanceTests.swift */,
 				A3AFFC131DB16130006AE7EF /* Info.plist */,
 			);
 			path = AhoCorasickTests;
@@ -147,6 +155,15 @@
 				A3AFFC2A1DB1616B006AE7EF /* TrieConfig.swift */,
 			);
 			path = Trie;
+			sourceTree = "<group>";
+		};
+		A3B66B781DB27E13007F1139 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				A3B66B791DB27E13007F1139 /* moby_dick.txt */,
+				A3B66B7A1DB27E13007F1139 /* words.txt */,
+			);
+			path = Files;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,6 +266,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3B66B7C1DB27E13007F1139 /* words.txt in Resources */,
+				A3B66B7B1DB27E13007F1139 /* moby_dick.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,6 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3B66B7E1DB27E1F007F1139 /* PerformanceTests.swift in Sources */,
 				A3AFFC121DB16130006AE7EF /* AhoCorasickTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

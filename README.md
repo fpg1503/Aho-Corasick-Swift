@@ -83,7 +83,7 @@ In this case, it will only find one match, whereas it would normally find four. 
 are discarded because they are partial matches. `onlyDelimited()` uses the [TR#29](http://www.unicode.org/reports/tr29/) definition of word boundaries.
 
 Some text is WrItTeN in a combination of lowercase and uppercase and therefore hard to identify. You can instruct
-the Trie to lowercase the entire searchtext to ease the matching process. The lower-casing extends to keywords as well.
+the Trie to lowercase the entire searchText to ease the matching process. The lower-casing extends to keywords as well.
 
 ```swift
     let trie = Trie.builder()
@@ -96,6 +96,16 @@ the Trie to lowercase the entire searchtext to ease the matching process. The lo
 Normally, this match would not be found. With the caseInsensitive settings the entire search text is lowercased
 before the matching begins. Therefore it will find exactly one match. Since you still have control of the original
 search text and you will know exactly where the match was, you can still utilize the original casing.
+
+There's also the option to ignore diacritics when searching. This is useful when dealing with languages that have diacritics such as French, Portguese, Spanish, German, Czech, Italian, among [others](https://en.wikipedia.org/wiki/Diacritic):
+
+```swift
+    let trie = Trie.builder()
+        .diacriticInsensitive()
+        .add(keyword: "café")
+        .build()
+    let matches = trie.containsMatch(text: "je bois du cafe tous les matins")
+```
 
 It is also possible to just ask whether the text matches any of the keywords, or just to return the first match it 
 finds.
