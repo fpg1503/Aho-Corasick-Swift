@@ -1,9 +1,7 @@
-//
-//  Persistable.swift
-//  AhoCorasick
-//
-//  Created by Francesco Perrotti-Garcia on 17/10/16.
-//  Copyright © 2016 Francesco Perrotti-Garcia. All rights reserved.
-//
+typealias Encodable = NSCoding
+typealias Decodable = NSCoder
 
-import Foundation
+protocol Persistable {
+    static func encode(value: Self) -> Encodable
+    static func decode(decodable: Decodable) -> Self?
+}

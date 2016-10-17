@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A397238B1DB48997009A0F37 /* Trie+Peristable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397238A1DB48997009A0F37 /* Trie+Peristable.swift */; };
 		A3AFFC0D1DB16130006AE7EF /* AhoCorasick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AFFC031DB16130006AE7EF /* AhoCorasick.framework */; };
 		A3AFFC121DB16130006AE7EF /* AhoCorasickTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AFFC111DB16130006AE7EF /* AhoCorasickTests.swift */; };
 		A3AFFC141DB16130006AE7EF /* AhoCorasick.h in Headers */ = {isa = PBXBuildFile; fileRef = A3AFFC061DB16130006AE7EF /* AhoCorasick.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -23,6 +24,9 @@
 		A3AFFC351DB1616B006AE7EF /* TrieConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AFFC2A1DB1616B006AE7EF /* TrieConfig.swift */; };
 		A3AFFC371DB16668006AE7EF /* IntervalArrayExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AFFC361DB16668006AE7EF /* IntervalArrayExtensions.swift */; };
 		A3AFFC391DB198E5006AE7EF /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AFFC381DB198E5006AE7EF /* StringExtensions.swift */; };
+		A3B66B871DB47AFC007F1139 /* Persistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B66B861DB47AFC007F1139 /* Persistable.swift */; };
+		A3B66B891DB47CAA007F1139 /* TrieConfig+Persistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B66B881DB47CAA007F1139 /* TrieConfig+Persistable.swift */; };
+		A3B66B8B1DB47FB2007F1139 /* State+Persistable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B66B8A1DB47FB2007F1139 /* State+Persistable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A397238A1DB48997009A0F37 /* Trie+Peristable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Trie+Peristable.swift"; sourceTree = "<group>"; };
 		A3AFFC031DB16130006AE7EF /* AhoCorasick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AhoCorasick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3AFFC061DB16130006AE7EF /* AhoCorasick.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AhoCorasick.h; sourceTree = "<group>"; };
 		A3AFFC071DB16130006AE7EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -55,6 +60,9 @@
 		A3AFFC2A1DB1616B006AE7EF /* TrieConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrieConfig.swift; sourceTree = "<group>"; };
 		A3AFFC361DB16668006AE7EF /* IntervalArrayExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntervalArrayExtensions.swift; sourceTree = "<group>"; };
 		A3AFFC381DB198E5006AE7EF /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		A3B66B861DB47AFC007F1139 /* Persistable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistable.swift; sourceTree = "<group>"; };
+		A3B66B881DB47CAA007F1139 /* TrieConfig+Persistable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TrieConfig+Persistable.swift"; sourceTree = "<group>"; };
+		A3B66B8A1DB47FB2007F1139 /* State+Persistable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "State+Persistable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +105,7 @@
 		A3AFFC051DB16130006AE7EF /* AhoCorasick */ = {
 			isa = PBXGroup;
 			children = (
+				A3B66B851DB47AF5007F1139 /* Persistence */,
 				A3AFFC1D1DB1616B006AE7EF /* Extensions */,
 				A3AFFC1F1DB1616B006AE7EF /* Interval */,
 				A3AFFC231DB1616B006AE7EF /* Trie */,
@@ -147,6 +156,17 @@
 				A3AFFC2A1DB1616B006AE7EF /* TrieConfig.swift */,
 			);
 			path = Trie;
+			sourceTree = "<group>";
+		};
+		A3B66B851DB47AF5007F1139 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				A3B66B861DB47AFC007F1139 /* Persistable.swift */,
+				A3B66B8A1DB47FB2007F1139 /* State+Persistable.swift */,
+				A397238A1DB48997009A0F37 /* Trie+Peristable.swift */,
+				A3B66B881DB47CAA007F1139 /* TrieConfig+Persistable.swift */,
+			);
+			path = Persistence;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,7 +288,11 @@
 				A3AFFC341DB1616B006AE7EF /* Trie.swift in Sources */,
 				A3AFFC2E1DB1616B006AE7EF /* IntervalTree.swift in Sources */,
 				A3AFFC371DB16668006AE7EF /* IntervalArrayExtensions.swift in Sources */,
+				A3B66B891DB47CAA007F1139 /* TrieConfig+Persistable.swift in Sources */,
+				A3B66B871DB47AFC007F1139 /* Persistable.swift in Sources */,
+				A397238B1DB48997009A0F37 /* Trie+Peristable.swift in Sources */,
 				A3AFFC2D1DB1616B006AE7EF /* IntervalNode.swift in Sources */,
+				A3B66B8B1DB47FB2007F1139 /* State+Persistable.swift in Sources */,
 				A3AFFC301DB1616B006AE7EF /* FragmentToken.swift in Sources */,
 				A3AFFC391DB198E5006AE7EF /* StringExtensions.swift in Sources */,
 				A3AFFC321DB1616B006AE7EF /* State.swift in Sources */,

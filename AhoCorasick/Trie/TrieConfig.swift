@@ -1,8 +1,7 @@
-
 public struct TrieConfig {
-    var removeOverlaps = false
-    var onlyDelimited = false
-    var caseInsensitive = false
-    var diacriticInsensitive = false
-    var stopOnHit = false
+    internal var removeOverlaps = false
+    internal var onlyDelimited = false
+    internal var caseInsensitive = false
+    internal var diacriticInsensitive = false
+    internal var stopOnHit = false
 }

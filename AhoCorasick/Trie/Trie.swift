@@ -1,8 +1,13 @@
 import Foundation
 
 public struct Trie {
-    private var config: TrieConfig
-    private let rootState: State = State()
+    internal var config: TrieConfig
+    internal var rootState: State = State()
+
+    internal init(config: TrieConfig, rootState: State) {
+        self.config     = config
+        self.rootState  = rootState
+    }
 
     private func add(keyword: String) {
         guard !keyword.isEmpty else { return }

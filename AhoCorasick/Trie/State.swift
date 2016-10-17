@@ -1,10 +1,10 @@
-public class State {
+public final class State {
 
     public var depth: Int
 
-    private var rootState: State?
+    internal var rootState: State?
 
-    private var success: [Character: State] = [:]
+    internal var success: [Character: State] = [:]
 
     public var failure: State?
     public var emits: Set<String> = []
