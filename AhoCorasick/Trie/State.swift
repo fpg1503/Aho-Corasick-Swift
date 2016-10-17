@@ -1,4 +1,4 @@
-public final class State {
+public final class State: NSObject {
 
     public var depth: Int
 
@@ -9,12 +9,15 @@ public final class State {
     public var failure: State?
     public var emits: Set<String> = []
 
-    convenience init() {
+    convenience override init() {
         self.init(depth: 0)
     }
 
     init(depth: Int) {
         self.depth = depth
+        self.rootState = nil
+        super.init()
+
         self.rootState = depth == 0 ? self : nil
     }
 
@@ -42,7 +45,7 @@ public final class State {
     }
 
 
-    public func addEmit(_ emits: [String]) {
+    public func addEmits(_ emits: [String]) {
         for emit in emits {
             addEmit(emit)
         }

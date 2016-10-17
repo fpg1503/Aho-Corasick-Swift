@@ -216,7 +216,7 @@ public struct Trie {
 
                 let newFailureState = traceFailureState?.nextState(for: transition, ignoreRootState: false)
                 targetState?.failure = newFailureState
-                targetState?.addEmit(Array(newFailureState?.emits ?? []))
+                targetState?.addEmits(Array(newFailureState?.emits ?? []))
                 
             }
         }
