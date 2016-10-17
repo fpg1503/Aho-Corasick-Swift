@@ -89,6 +89,14 @@ class PerformanceTests: XCTestCase {
         XCTAssertEqual(emits.count, 2208202)
     }
 
+    public func testFindMobyAndDickInMobyDick() {
+        let mobyDick = loadMobyDick()
+
+        let emits = mobyDick.find(substrings: ["moby", "dick"], options: [.caseInsensitive])
+
+        XCTAssertEqual(emits.count, 89*2)
+    }
+
     public func testMobyDickRegex() {
         let words = loadWords()
         let mobyDick = loadMobyDick()
@@ -101,16 +109,16 @@ class PerformanceTests: XCTestCase {
         let wholeRange = NSRange(location: 0, length: mobyDick.characters.count)
         let range = mobyDick.startIndex..<mobyDick.endIndex
         XCTAssertEqual(nsMoby, mobyDick.substring(with: range) as NSString)
-
-        //Takes about 4316630 seconds
-        let matches = regex?.matches(in: mobyDick, options: [], range: wholeRange) ?? []
-
-        XCTAssertEqual(matches.count, 1232639)
+        print("Regex creation is Ok!")
 
         let emits = mobyDick.find(substrings: words)
         XCTAssertEqual(emits.count, 2208202)
+        print("Aho-Corasick is Ok!")
 
-        print("Ok! Checking matches")
+        //Takes about 4316630 seconds
+        let matches = regex?.matches(in: mobyDick, options: [], range: wholeRange) ?? []
+        XCTAssertEqual(matches.count, 1232639)
+        print("Regex is Ok!")
 
         for match in matches {
             let start = match.range.location
