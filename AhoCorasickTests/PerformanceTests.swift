@@ -40,11 +40,13 @@ class PerformanceTests: XCTestCase {
 
         var iterator = emits.makeIterator()
 
-        XCTAssertEqual(iterator.next(), Emit(start: 1, end: 1, keyword: "t"))
+        XCTAssertEqual(iterator.next(), Emit(start: 0, end: 0, keyword: "t"))
+        XCTAssertEqual(iterator.next(), Emit(start: 0, end: 1, keyword: "th"))
         XCTAssertEqual(iterator.next(), Emit(start: 1, end: 1, keyword: "h"))
         XCTAssertEqual(iterator.next(), Emit(start: 1, end: 2, keyword: "hi"))
         XCTAssertEqual(iterator.next(), Emit(start: 2, end: 2, keyword: "i"))
         XCTAssertEqual(iterator.next(), Emit(start: 3, end: 3, keyword: "s"))
+        XCTAssertEqual(iterator.next(), Emit(start: 0, end: 3, keyword: "this"))
         XCTAssertEqual(iterator.next(), Emit(start: 1, end: 3, keyword: "his"))
         XCTAssertEqual(iterator.next(), Emit(start: 2, end: 3, keyword: "is"))
         XCTAssertEqual(iterator.next(), Emit(start: 5, end: 5, keyword: "i"))
