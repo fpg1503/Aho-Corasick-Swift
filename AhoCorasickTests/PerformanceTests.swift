@@ -43,8 +43,25 @@ class PerformanceTests: XCTestCase {
         let regex = try? NSRegularExpression(pattern: pattern, options: [])
 
         let wholeRange = NSRange(location: 0, length: mobyDick.characters.count)
+        //Takes about 4316630 seconds
         let matches = regex?.matches(in: mobyDick, options: [], range: wholeRange) ?? []
 
-        XCTAssertEqual(matches.count, 2208202)
+        let emits = mobyDick.find(substrings: words)
+
+        let nsMoby = mobyDick as NSString
+
+        for match in matches {
+            let start = match.range.location
+            let end = match.range.length - start - 1
+
+            let keyword = nsMoby.substring(with: match.range)
+
+            let emit = Emit(start: start, end: end, keyword: keyword)
+
+            XCTAssertTrue(emits.contains(emit))
+        }
+
+
+        XCTAssertEqual(matches.count, 1232639)
     }
 }
