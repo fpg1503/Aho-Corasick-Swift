@@ -1,5 +1,5 @@
 typealias Encodable = NSCoding
-typealias Decodable = NSCoder
+typealias Decodable = Any?
 
 protocol Persistable {
     static func encode(value: Self) -> Encodable

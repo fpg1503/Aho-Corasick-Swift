@@ -26,6 +26,6 @@ extension State: Persistable, NSCoding {
     }
 
     static func decode(decodable: Decodable) -> State? {
-        return State(coder: decodable)
+        return decodable as? State
     }
 }

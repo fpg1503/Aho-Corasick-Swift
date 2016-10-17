@@ -1,5 +1,5 @@
 extension TrieConfig: Persistable {
-    class NSCodable: NSCoding {
+    class NSCodable: NSObject, NSCoding {
 
         let value: TrieConfig
 
@@ -31,6 +31,8 @@ extension TrieConfig: Persistable {
     }
 
     static func decode(decodable: Decodable) -> TrieConfig? {
-        return NSCodable(coder: decodable)?.value
+        guard let decodable = decodable as? NSCodable else { return nil }
+
+        return decodable.value
     }
 }

@@ -290,6 +290,6 @@ public struct Trie {
             trie.constructFailureStates()
             return trie
         }
-
     }
 }
+

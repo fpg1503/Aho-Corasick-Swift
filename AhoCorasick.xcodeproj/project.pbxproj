@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A397238B1DB48997009A0F37 /* Trie+Peristable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397238A1DB48997009A0F37 /* Trie+Peristable.swift */; };
+		A397238D1DB48BB3009A0F37 /* PersistableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A397238C1DB48BB3009A0F37 /* PersistableTests.swift */; };
 		A3AFFC0D1DB16130006AE7EF /* AhoCorasick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A3AFFC031DB16130006AE7EF /* AhoCorasick.framework */; };
 		A3AFFC121DB16130006AE7EF /* AhoCorasickTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3AFFC111DB16130006AE7EF /* AhoCorasickTests.swift */; };
 		A3AFFC141DB16130006AE7EF /* AhoCorasick.h in Headers */ = {isa = PBXBuildFile; fileRef = A3AFFC061DB16130006AE7EF /* AhoCorasick.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		A397238A1DB48997009A0F37 /* Trie+Peristable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Trie+Peristable.swift"; sourceTree = "<group>"; };
+		A397238C1DB48BB3009A0F37 /* PersistableTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistableTests.swift; sourceTree = "<group>"; };
 		A3AFFC031DB16130006AE7EF /* AhoCorasick.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AhoCorasick.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3AFFC061DB16130006AE7EF /* AhoCorasick.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AhoCorasick.h; sourceTree = "<group>"; };
 		A3AFFC071DB16130006AE7EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 			isa = PBXGroup;
 			children = (
 				A3AFFC111DB16130006AE7EF /* AhoCorasickTests.swift */,
+				A397238C1DB48BB3009A0F37 /* PersistableTests.swift */,
 				A3AFFC131DB16130006AE7EF /* Info.plist */,
 			);
 			path = AhoCorasickTests;
@@ -303,6 +306,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A397238D1DB48BB3009A0F37 /* PersistableTests.swift in Sources */,
 				A3AFFC121DB16130006AE7EF /* AhoCorasickTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

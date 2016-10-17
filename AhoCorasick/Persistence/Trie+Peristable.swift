@@ -1,5 +1,5 @@
 extension Trie: Persistable {
-    class NSCodable: NSCoding {
+    class NSCodable: NSObject, NSCoding {
 
         let value: Trie
 
@@ -30,6 +30,8 @@ extension Trie: Persistable {
     }
 
     static func decode(decodable: Decodable) -> Trie? {
-        return NSCodable(coder: decodable)?.value
+        guard let decodable = decodable as? NSCodable else { return nil }
+
+        return decodable.value
     }
 }
