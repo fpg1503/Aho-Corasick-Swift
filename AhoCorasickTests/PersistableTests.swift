@@ -12,13 +12,19 @@ class PersistableTests: XCTestCase {
             .add(keyword: "apple pie")
             .build()
 
+        let text = "Test, banana, bat, battery, pineapple pie, apple pie"
+
+        let emitsBefore = text.parse(with: trie)
+
         let encodable = Trie.encode(value: trie)
         let data = NSKeyedArchiver.archivedData(withRootObject: encodable)
 
         let unarchived = NSKeyedUnarchiver.unarchiveObject(with: data)
-        let decoded = Trie.decode(decodable: unarchived)
+        let decodedTrie = Trie.decode(decodable: unarchived)
+        XCTAssertNotNil(decodedTrie)
 
-        print(decoded)
-//        XCTAssertEqual(trie, decoded)
+        let emitsAfter = decodedTrie.map { text.parse(with: $0) } ?? []
+
+        XCTAssertEqual(emitsBefore, emitsAfter)
     }
 }
