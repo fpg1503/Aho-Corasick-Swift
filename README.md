@@ -1,5 +1,8 @@
 # Aho-Corasick in Swift
 [![CI Status](http://img.shields.io/travis/fpg1503/Aho-Corasick-Swift.svg?style=flat)](https://travis-ci.org/fpg1503/Aho-Corasick-Swift)
+[![Version](https://img.shields.io/cocoapods/v/Aho-Corasick.svg?style=flat)](http://cocoapods.org/pods/Aho-Corasick)
+[![License](https://img.shields.io/cocoapods/l/Aho-Corasick.svg?style=flat)](http://cocoapods.org/pods/Aho-Corasick)
+[![Platform](https://img.shields.io/cocoapods/p/Aho-Corasick.svg?style=flat)](http://cocoapods.org/pods/Aho-Corasick)
 
 ## Introduction
 Nowadays most free-text searching is based on Lucene-like approaches, where the search text is parsed into its
