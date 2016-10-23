@@ -13,6 +13,6 @@ Pod::Spec.new do |s|
   s.authors = { 'Francesco Perrotti-Garcia' => 'fpg1503@gmail.com' }
   s.source = { :git => 'https://github.com/fpg1503/Aho-Corasick-Swift.git', :tag => s.version }
   s.ios.deployment_target = '8.0'
-  s.source_files = 'Source/*.swift'
+  s.source_files = 'Source/**/*.swift'
 
 end
