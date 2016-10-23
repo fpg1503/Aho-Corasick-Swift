@@ -27,4 +27,4 @@ script:
       pod lib lint;
     fi
 
-  - CheckCocoaPodsQualityIndexes.rb AhoCorasick
+  - ruby Tests/CheckCocoaPodsQualityIndexes.rb AhoCorasick
