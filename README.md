@@ -1,4 +1,5 @@
 # Aho-Corasick in Swift
+[![CI Status](http://img.shields.io/travis/fpg1503/Aho-Corasick-Swift.svg?style=flat)](https://travis-ci.org/fpg1503/Aho-Corasick-Swift)
 
 ## Introduction
 Nowadays most free-text searching is based on Lucene-like approaches, where the search text is parsed into its
