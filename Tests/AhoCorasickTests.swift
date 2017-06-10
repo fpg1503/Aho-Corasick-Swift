@@ -481,4 +481,41 @@ class AhoCorasickTests: XCTestCase {
 
         XCTAssertEqual(emits.count, 6)
     }
+
+    public func testEncodeAndDecodeTrie() {
+        let trie = Trie.builder()
+            .add(keyword: "veal")
+            .add(keyword: "cauliflower")
+            .add(keyword: "broccoli")
+            .add(keyword: "tomatoes")
+            .build()
+
+        let json = try? JSONEncoder().encode(trie)
+        XCTAssertNotNil(json)
+
+        let decodedTrie = try? JSONDecoder().decode(Trie.self, from: json!)
+        XCTAssertNotNil(decodedTrie)
+
+        let emits = trie.parse(text: "2 cauliflowers, 3 tomatoes, 4 slices of veal, 100g broccoli")
+        let expectedEmit0 = Emit(start: 2, end: 12, keyword: "cauliflower")
+        XCTAssertEqual(emits[0], expectedEmit0)
+        let expectedEmit1 = Emit(start: 18, end: 25, keyword: "tomatoes")
+        XCTAssertEqual(emits[1], expectedEmit1)
+        let expectedEmit2 = Emit(start: 40, end: 43, keyword: "veal")
+        XCTAssertEqual(emits[2], expectedEmit2)
+        let expectedEmit3 = Emit(start: 51, end: 58, keyword: "broccoli")
+        XCTAssertEqual(emits[3], expectedEmit3)
+
+        let decodedEmits = decodedTrie!.parse(text: "2 cauliflowers, 3 tomatoes, 4 slices of veal, 100g broccoli")
+        let decodedExpectedEmit0 = Emit(start: 2, end: 12, keyword: "cauliflower")
+        XCTAssertEqual(decodedEmits[0], decodedExpectedEmit0)
+        let decodedExpectedEmit1 = Emit(start: 18, end: 25, keyword: "tomatoes")
+        XCTAssertEqual(decodedEmits[1], decodedExpectedEmit1)
+        let decodedExpectedEmit2 = Emit(start: 40, end: 43, keyword: "veal")
+        XCTAssertEqual(decodedEmits[2], decodedExpectedEmit2)
+        let decodedExpectedEmit3 = Emit(start: 51, end: 58, keyword: "broccoli")
+        XCTAssertEqual(decodedEmits[3], decodedExpectedEmit3)
+
+        XCTAssertEqual(emits, decodedEmits)
+    }
 }
