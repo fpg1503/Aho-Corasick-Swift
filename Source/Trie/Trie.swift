@@ -56,14 +56,14 @@ public struct Trie {
         let begin = text.index(text.startIndex, offsetBy: lastCollectedPosition + 1)
         let end = text.index(text.startIndex, offsetBy: emit?.start ?? text.characters.count)
         let substring = text[begin..<end]
-        return FragmentToken(fragment: substring)
+        return FragmentToken(fragment: String(substring))
     }
 
     private func createMatch(_ emit: Emit, text: String) -> Token {
         let begin = text.index(text.startIndex, offsetBy: emit.start)
         let end = text.index(text.startIndex, offsetBy: emit.end + 1)
         let substring = text[begin..<end]
-        return MatchToken(fragment: substring, emit: emit)
+        return MatchToken(fragment: String(substring), emit: emit)
     }
 
     public func parse(text: String) -> [Emit] {
