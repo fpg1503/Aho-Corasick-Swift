@@ -1,4 +1,4 @@
-public class State {
+public class State: Codable {
 
     public var depth: Int
 
@@ -56,4 +56,31 @@ public class State {
         return Array(success.keys)
     }
 
+    enum CodingKeys: String, CodingKey {
+        case depth
+        case rootState
+        case success
+        case failure
+        case emits
+
+    }
+
+    public required init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+
+        depth = try values.decode(Int.self, forKey: .depth)
+        rootState = try values.decodeIfPresent(State.self, forKey: .rootState)
+        success = try values.decode(Dictionary<Character, State>.self, forKey: .success)
+        failure = try values.decode(State.self, forKey: .failure)
+        emits = try values.decode(Set<String>.self, forKey: .emits)
+    }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(depth, forKey: .depth)
+        try container.encode(rootState, forKey: .rootState)
+        try container.encode(success, forKey: .success)
+        try container.encode(failure, forKey: .failure)
+        try container.encode(emits, forKey: .emits)
+    }
 }
