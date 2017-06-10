@@ -1,4 +1,3 @@
-
 public struct TrieConfig: Codable {
     var removeOverlaps = false
     var onlyDelimited = false

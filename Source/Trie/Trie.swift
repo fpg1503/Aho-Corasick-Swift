@@ -1,9 +1,25 @@
 import Foundation
 
-public struct Trie {
+public struct Trie: Codable {
     private var config: TrieConfig
-    private let rootState: State = State()
+    private let rootState = State()
 
+    init() {
+        config = TrieConfig()
+    }
+
+    public init(config: TrieConfig, keywords: [String]) {
+        self.config = config
+
+        for keyword in keywords {
+            add(keyword: keyword)
+        }
+
+        constructFailureStates()
+    }
+}
+
+extension Trie {
     private func add(keyword: String) {
         guard !keyword.isEmpty else { return }
 
@@ -229,19 +245,7 @@ public struct Trie {
         return storedEmits
     }
 
-    init() {
-        config = TrieConfig()
-    }
 
-    public init(config: TrieConfig, keywords: [String]) {
-        self.config = config
-
-        for keyword in keywords {
-            add(keyword: keyword)
-        }
-
-        constructFailureStates()
-    }
 
     public static func builder() -> TrieBuilder {
         return TrieBuilder()
