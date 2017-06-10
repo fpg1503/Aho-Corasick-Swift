@@ -1,5 +1,5 @@
 
-public struct TrieConfig {
+public struct TrieConfig: Codable {
     var removeOverlaps = false
     var onlyDelimited = false
     var caseInsensitive = false
