@@ -4,13 +4,13 @@ extension Character {
     func lowercased() -> Character {
         let string = String(self)
         let lowercasedString = string.lowercased()
-        return lowercasedString.characters.first ?? self
+        return lowercasedString.first ?? self
     }
 
     func removingDiacritics() -> Character {
         let string = String(self)
         let stringRemovingDiacritics = string.removingDiacritics()
-        return stringRemovingDiacritics.characters.first ?? self
+        return stringRemovingDiacritics.first ?? self
     }
 
     var isWordBoundary: Bool {
@@ -19,7 +19,7 @@ extension Character {
         let nonCharacter = "a"
 
         let string = nonCharacter + String(self)
-        let wholeRange = NSRange(location: 0, length: string.characters.count)
+        let wholeRange = NSRange(location: 0, length: string.count)
 
         let pattern = nonCharacter + "\\b"
         let regex = try? NSRegularExpression(pattern: pattern, options: .useUnicodeWordBoundaries)
