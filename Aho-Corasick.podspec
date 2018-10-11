@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "Aho-Corasick"
-  s.version      = "1.0"
+  s.version      = "2.0"
   s.summary      = "🔍 Swift implementation of the Aho-Corasick algorithm for efficient String matching"
   s.license      = { :type => "Apache License, Version 2.0", :file => "LICENSE" }
 

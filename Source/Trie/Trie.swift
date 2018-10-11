@@ -9,7 +9,7 @@ public struct Trie {
 
         var currentState = rootState
 
-        for var character in keyword.characters {
+        for var character in keyword {
             if config.caseInsensitive {
                 character = character.lowercased()
             }
@@ -45,7 +45,7 @@ public struct Trie {
             tokens.append(createMatch(emit, text: text))
             lastCollectedPosition = emit.end
         }
-        if text.characters.count - lastCollectedPosition > 1 {
+        if text.count - lastCollectedPosition > 1 {
             tokens.append(createFragment(nil, text: text, lastCollectedPosition: lastCollectedPosition))
         }
 
@@ -54,16 +54,16 @@ public struct Trie {
 
     private func createFragment(_ emit: Emit?, text: String, lastCollectedPosition: Int) -> Token {
         let begin = text.index(text.startIndex, offsetBy: lastCollectedPosition + 1)
-        let end = text.index(text.startIndex, offsetBy: emit?.start ?? text.characters.count)
+        let end = text.index(text.startIndex, offsetBy: emit?.start ?? text.count)
         let substring = text[begin..<end]
-        return FragmentToken(fragment: substring)
+        return FragmentToken(fragment: String(substring))
     }
 
     private func createMatch(_ emit: Emit, text: String) -> Token {
         let begin = text.index(text.startIndex, offsetBy: emit.start)
         let end = text.index(text.startIndex, offsetBy: emit.end + 1)
         let substring = text[begin..<end]
-        return MatchToken(fragment: substring, emit: emit)
+        return MatchToken(fragment: String(substring), emit: emit)
     }
 
     public func parse(text: String) -> [Emit] {
@@ -90,7 +90,7 @@ public struct Trie {
     private func collectEmits(for text: String) -> [Emit] {
         var currentState = rootState
         var storedEmits = [Emit]()
-        for (position, character) in text.characters.enumerated() {
+        for (position, character) in text.enumerated() {
             var character = character
 
             if config.caseInsensitive {
@@ -119,7 +119,7 @@ public struct Trie {
         } else {
             var currentState = rootState
 
-            for (position, character) in text.characters.enumerated() {
+            for (position, character) in text.enumerated() {
                 var character = character
 
                 if config.caseInsensitive {
@@ -133,7 +133,7 @@ public struct Trie {
                 let emitStrings = currentState.emits
 
                 for string in emitStrings {
-                    let emit = Emit(start: position - string.characters.count + 1, end: position, keyword: string)
+                    let emit = Emit(start: position - string.count + 1, end: position, keyword: string)
                     if config.onlyDelimited {
                         if !isPartialMatch(searchText: text, emit: emit) {
                             return emit
@@ -153,16 +153,16 @@ public struct Trie {
 
             let offset = emit.start - 1
             let index = searchText.index(searchText.startIndex, offsetBy: offset)
-            let characterBefore = searchText.characters[index]
+            let characterBefore = searchText[index]
 
             return !characterBefore.isWordBoundary
         }()
         let characterAfterIsNotBoundary: Bool = {
-            guard emit.end + 1 < searchText.characters.count else { return false }
+            guard emit.end + 1 < searchText.count else { return false }
 
             let offset = emit.end + 1
             let index = searchText.index(searchText.startIndex, offsetBy: offset)
-            let characterAfter = searchText.characters[index]
+            let characterAfter = searchText[index]
 
             return !characterAfter.isWordBoundary
         }()
@@ -223,7 +223,7 @@ public struct Trie {
         var storedEmits = [Emit]()
 
         for emit in emits {
-            storedEmits.append(Emit(start: position - emit.characters.count + 1, end: position, keyword: emit))
+            storedEmits.append(Emit(start: position - emit.count + 1, end: position, keyword: emit))
         }
 
         return storedEmits
