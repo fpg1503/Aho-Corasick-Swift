@@ -26,15 +26,15 @@ public struct TrieOptions: OptionSet {
 }
 
 public extension String {
-    public func removingDiacritics() -> String {
+    func removingDiacritics() -> String {
         return folding(options: .diacriticInsensitive, locale: nil)
     }
 
-    public func parse(with trie: Trie) -> [Emit] {
+    func parse(with trie: Trie) -> [Emit] {
         return trie.parse(text: self)
     }
 
-    public func find(substrings: [String], options: TrieOptions = []) -> [Emit] {
+    func find(substrings: [String], options: TrieOptions = []) -> [Emit] {
         let config = options.trieConfig
 
         let trie = Trie(config: config, keywords: substrings)

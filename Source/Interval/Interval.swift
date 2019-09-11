@@ -32,12 +32,6 @@ public func ==<T: Interval, U: Interval>(lhs: T, rhs: U) -> Bool {
            lhs.end == rhs.end
 }
 
-extension Interval {
-    public var hashValue: Int {
-        return start % 100 + end % 100
-    }
-}
-
 public func <<T: Interval, U: Interval>(lhs: T, rhs: U) -> Bool {
     if lhs.start == rhs.start {
         return lhs.end < rhs.end
