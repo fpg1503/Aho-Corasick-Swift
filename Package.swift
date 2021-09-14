@@ -19,7 +19,7 @@ let package = Package(
             name: "Aho-Corasick-SPM",
             dependencies: []),
         .testTarget(
-            name: "Aho-Corasick-SPM",
+            name: "Aho-Corasick-SPM-Tests",
             dependencies: ["Aho-Corasick-SPM"]),
     ]
 )
