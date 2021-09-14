@@ -8,13 +8,13 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "Aho-Corasick-SPM",
-            targets: ["Aho-Corasick-SPM"]
+            name: "Aho-Corasick-Swift",
+            targets: ["Aho-Corasick-Swift"]
         ),
     ],
     targets: [
         .target(
-            name: "Aho-Corasick-SPM",
+            name: "Aho-Corasick-Swift",
             dependencies: []
         ),
     ]
