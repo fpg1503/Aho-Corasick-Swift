@@ -15,7 +15,8 @@ let package = Package(
     targets: [
         .target(
             name: "Aho-Corasick-Swift",
-            dependencies: []
+            path: "Aho-Corasick-Swift",
+            publicHeadersPath: "."
         ),
     ]
 )
