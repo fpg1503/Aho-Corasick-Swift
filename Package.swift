@@ -9,17 +9,13 @@ let package = Package(
     products: [
         .library(
             name: "Aho-Corasick-SPM",
-            targets: ["Aho-Corasick-SPM"]),
-    ],
-    dependencies: [
-        // no dependencies
+            targets: ["Aho-Corasick-SPM"]
+        ),
     ],
     targets: [
         .target(
             name: "Aho-Corasick-SPM",
-            dependencies: []),
-        .testTarget(
-            name: "Aho-Corasick-SPM-Tests",
-            dependencies: ["Aho-Corasick-SPM"]),
+            dependencies: []
+        ),
     ]
 )
