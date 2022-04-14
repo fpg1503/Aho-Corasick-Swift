@@ -30,6 +30,12 @@ public struct Trie {
         currentState.addEmit(keyword)
     }
 
+    private func addKeyWordArray(keywords: [String]) {
+        for keyword in keywords {
+            add(keyword: keyword)
+        }
+    }
+    
     public func tokenize(text: String) -> [Token] {
 
         var tokens = [Token]()
@@ -276,6 +282,11 @@ public struct Trie {
             return self
         }
 
+        public func addKeyWordArray(keywords: [String]) -> TrieBuilder {
+            trie.addKeyWordArray(keywords: keywords)
+            return self
+        }
+        
         public func stopOnHit() -> TrieBuilder {
             trie.config.stopOnHit = true
             return self
